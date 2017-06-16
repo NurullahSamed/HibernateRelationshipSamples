@@ -6,6 +6,7 @@ import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
+import javax.persistence.OneToOne;
 
 @Entity
 public class Employee {
@@ -25,6 +26,10 @@ public class Employee {
 	@ManyToOne
 	//@JoinColumn(name = "DEPT_ID")
 	private Department department;
+	
+	@OneToOne
+	@JoinColumn(name = "park_id")
+	private ParkingSpace parkingSpace;
 	
 	public Employee(){
 		super();
@@ -79,5 +84,18 @@ public class Employee {
 	
 	public void setDepartment(Department department){
 		this.department = department;
+	}
+
+	public ParkingSpace getParkingSpace() {
+		return parkingSpace;
+	}
+
+	public void setParkingSpace(ParkingSpace parkingSpace) {
+		this.parkingSpace = parkingSpace;
+	}
+
+	@Override
+	public String toString() {
+		return "Employee [id=" + id + ", name=" + name + ", surname=" + surname + ", salary=" + salary + "]";
 	}
 }
