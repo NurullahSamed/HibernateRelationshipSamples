@@ -28,7 +28,7 @@ public class Employee {
 	private Department department;
 	
 	@OneToOne
-	@JoinColumn(name = "park_id")
+	@JoinColumn(name = "park_id",unique = true)
 	private ParkingSpace parkingSpace;
 	
 	public Employee(){
